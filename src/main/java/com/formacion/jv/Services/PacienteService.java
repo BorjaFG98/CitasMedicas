@@ -20,7 +20,7 @@ public class PacienteService {
     public List<PacienteDto> obtenerPacientes(){
         List<PacienteDto> pacientesDTO = new ArrayList<PacienteDto>();
         for (Paciente paciente : Pac_repo.findAll()) {
-            pacientesDTO.add(PacienteMapper.INSTANCE.pacienteToPacienteDTO(paciente));
+            pacientesDTO.add(PacienteMapper.INSTANCE.pacienteToPacienteDto(paciente));
         }
         return pacientesDTO;
     }
@@ -52,7 +52,7 @@ public class PacienteService {
     public List<PacienteDto> obtenerPorUsuario(String user){
         List<PacienteDto> pacienteDtos = new ArrayList<>();
         for (Paciente paciente : Pac_repo.findByUsuario(user)) {
-            PacienteDto pacienteDto = PacienteMapper.INSTANCE.pacienteToPacienteDTO(paciente);
+            PacienteDto pacienteDto = PacienteMapper.INSTANCE.pacienteToPacienteDto(paciente);
             pacienteDtos.add(pacienteDto);
         }
         return pacienteDtos; //Usamos el metodo abstracto que declaramos en repo

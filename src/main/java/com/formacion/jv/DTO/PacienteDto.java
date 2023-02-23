@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link com.formacion.jv.Entity.Paciente} entity
  */
-public class PacienteDto implements Serializable {
+public class PacienteDto extends UsuarioDto {
     private String nombre;
     private String apellidos;
     private String usuario;
@@ -17,15 +17,10 @@ public class PacienteDto implements Serializable {
 
     private List<CitaDto> citas;
 
-    public PacienteDto(String nombre, String apellidos, String usuario, String clave, String numColegiado, MedicoDto medicos, CitaDto citas) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.usuario = usuario;
-        this.clave = clave;
-        this.numColegiado = numColegiado;
-        this.medicos= (List<MedicoDto>) medicos;
-        this.citas= (List<CitaDto>) citas;
+    public PacienteDto(Long id, String nombre, String apellidos, String usuario, String clave) {
+        super(id, nombre, apellidos, usuario, clave);
     }
+
 
     public String getNombre() {
         return nombre;

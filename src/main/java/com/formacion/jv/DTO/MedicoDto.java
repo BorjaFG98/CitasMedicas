@@ -7,25 +7,20 @@ import java.util.Objects;
 /**
  * A DTO for the {@link com.formacion.jv.Entity.Medico} entity
  */
-public class MedicoDto implements Serializable {
-    private final String nombre;
-    private final String apellidos;
-    private final String usuario;
-    private final String clave;
-    private final String numColegiado;
+public class MedicoDto extends UsuarioDto {
+    private String nombre;
+    private String apellidos;
+    private String usuario;
+    private  String clave;
+    private String numColegiado;
     private List<PacienteDto> pacientes;
 
     private List<CitaDto> citas;
 
-    public MedicoDto(String nombre, String apellidos, String usuario, String clave, String numColegiado, PacienteDto pacientes, CitaDto citas) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.usuario = usuario;
-        this.clave = clave;
-        this.numColegiado = numColegiado;
-        this.pacientes= (List<PacienteDto>) pacientes;
-        this.citas= (List<CitaDto>) citas;
+    public MedicoDto(Long id, String nombre, String apellidos, String usuario, String clave) {
+        super(id, nombre, apellidos, usuario, clave);
     }
+
 
     public String getNombre() {
         return nombre;
