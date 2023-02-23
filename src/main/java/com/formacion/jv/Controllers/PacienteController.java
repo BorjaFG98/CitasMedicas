@@ -1,5 +1,6 @@
 package com.formacion.jv.Controllers;
 
+import com.formacion.jv.DTO.PacienteDto;
 import com.formacion.jv.Entity.Medico;
 import com.formacion.jv.Entity.Paciente;
 import com.formacion.jv.Services.MedicoService;
@@ -19,7 +20,7 @@ public class PacienteController {
 
 
     @GetMapping
-    public List<Paciente> obtenerPacientes() {
+    public List<PacienteDto> obtenerPacientes() {
         return Pac_service.obtenerPacientes();//invocamos el metodo del servicio
     }
 
@@ -34,7 +35,7 @@ public class PacienteController {
     }
 
     @GetMapping("/query")
-    public List<Paciente> obtenerPacientebyusuario(@RequestParam("usuario") String usuario){
+    public List<PacienteDto> obtenerPacientebyusuario(@RequestParam("usuario") String usuario){
         return this.Pac_service.obtenerPorUsuario(usuario);//ejemplo: local.../usuario?usuario=GOD
     }
     @GetMapping("/query1")

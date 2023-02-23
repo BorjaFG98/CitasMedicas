@@ -1,8 +1,8 @@
 package com.formacion.jv.Controllers;
 
 
+import com.formacion.jv.DTO.CitaDto;
 import com.formacion.jv.Entity.Cita;
-import com.formacion.jv.Entity.Usuario;
 import com.formacion.jv.Services.CitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class CitaController {
     CitaService Cita_service;
 
     @GetMapping
-    public List<Cita> obtenerCitas() {
+    public List<CitaDto> obtenerCitas() {
         return Cita_service.obtenerCitas();//invocamos el metodo del servicio
     }
 
@@ -28,7 +28,7 @@ public class CitaController {
     }
 
     @GetMapping(path = "/{id}")// usuario/id
-    public Optional<Cita> obtenerCitas(@PathVariable("id") Long id) {
+    public CitaDto obtenerCitas(@PathVariable("id") Long id) {
         return Cita_service.obtenerPorId(id); //invocamos el metodo del servicio
     }
 

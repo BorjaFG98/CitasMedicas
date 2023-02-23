@@ -2,6 +2,8 @@ package com.formacion.jv.Services;
 
 
 import com.formacion.jv.Entity.Usuario;
+import com.formacion.jv.Mapper.UsuarioMapper;
+import com.formacion.jv.DTO.UsuarioDto;
 import com.formacion.jv.Exception.NotFoundException;
 import com.formacion.jv.Repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +11,6 @@ import org.springframework.stereotype.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import com.formacion.jv.Mapper.UsuarioMapper;
-import com.formacion.jv.DTO.UsuarioDto;
 
 
 
@@ -46,7 +46,7 @@ public class UsuarioService {
     public UsuarioDto obtenerPorId(Long id) {
         Optional <Usuario> usuario = User_repo.findById(id);//Causa una excepcion si falla, se pone como opcional por si damos una Id que no está
         if (usuario.isEmpty()) {
-            throw new NotFoundException("Medico not found : " + id);
+            throw new NotFoundException("Usuario not found : " + id);
         }
         return UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario.get());
     }

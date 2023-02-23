@@ -1,6 +1,7 @@
 package com.formacion.jv.Controllers;
 
 
+import com.formacion.jv.DTO.DiagnosticoDto;
 import com.formacion.jv.Entity.Diagnostico;
 import com.formacion.jv.Services.DiagnosticoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class DiagnosticoController {
     DiagnosticoService Diagn_service;
 
     @GetMapping
-    public List<Diagnostico> obtenerDiagnosticos() {
+    public List<DiagnosticoDto> obtenerDiagnosticos() {
         return Diagn_service.obtenerDiagnosticos();//invocamos el metodo del servicio
     }
 
@@ -27,7 +28,7 @@ public class DiagnosticoController {
     }
 
     @GetMapping(path = "/{id}")// usuario/id
-    public Optional<Diagnostico> obtenerCitas(@PathVariable("id") Long id) {
+    public DiagnosticoDto obtenerCitas(@PathVariable("id") Long id) {
         return Diagn_service.obtenerPorId(id); //invocamos el metodo del servicio
     }
 
